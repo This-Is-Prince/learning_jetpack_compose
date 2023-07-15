@@ -7,7 +7,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
@@ -22,24 +25,34 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            PreviewFunction()
+            Setup()
         }
     }
+}
+
+@Composable
+private fun Setup() {
+    PreviewFunction()
 }
 
 @Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
 private fun PreviewFunction() {
-    Button(onClick = { }, colors = ButtonDefaults.buttonColors(
-        contentColor = Color.White,
-        backgroundColor = Color.Black
-    )) {
-        Text(text = "Hello")
-        Image(
-            painter = painterResource(id = R.drawable.cat_quote),
-            contentDescription = "Dummy"
-        )
+    TextFieldPreviewFunction()
+}
+
+@Composable
+private fun TextFieldPreviewFunction() {
+    val state = remember {
+        mutableStateOf("")
     }
+    TextField(
+        value = state.value,
+        onValueChange = {
+            state.value = it
+        },
+        label = { Text(text = "Enter Message") }
+    )
 }
 
 @Composable
