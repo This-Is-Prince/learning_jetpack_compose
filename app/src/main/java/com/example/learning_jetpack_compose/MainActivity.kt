@@ -4,7 +4,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
@@ -14,6 +18,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
@@ -42,7 +47,29 @@ private fun Setup() {
 @Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
 private fun PreviewFunction() {
-    ListViewItem(R.drawable.cat_quote, "John Doe","Software Developer")
+    Image(
+        painter = painterResource(id = R.drawable.cat_quote),
+        contentDescription = "Quote with cat",
+        contentScale = ContentScale.Crop,
+        modifier = Modifier.size(80.dp)
+            .clip(CircleShape)
+            .border(2.dp, Color.LightGray, CircleShape),
+    )
+}
+
+@Composable
+private fun ModifierPreviewFunction() {
+    Text(
+        text = "Hello",
+        color = Color.White,
+        modifier = Modifier
+            .clickable { }
+            .background(Color.Blue)
+            .size(200.dp)
+            .border(4.dp, Color.Red)
+            .clip(CircleShape)
+            .background(Color.Yellow)
+    )
 }
 
 @Composable
