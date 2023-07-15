@@ -3,41 +3,33 @@ package com.example.learning_jetpack_compose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.learning_jetpack_compose.ui.theme.Learning_jetpack_composeTheme
+import androidx.compose.ui.unit.sp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Learning_jetpack_composeTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting("Android")
-                }
-            }
+            Text(text = "Hello Prince")
         }
     }
 }
 
+@Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    Learning_jetpack_composeTheme {
-        Greeting("Android")
-    }
+private fun PreviewFunction() {
+    Text(
+        text = "Hello Prince",
+        fontStyle = FontStyle.Italic,
+        fontWeight = FontWeight.ExtraBold,
+        color = Color.Red,
+        fontSize = 36.sp,
+        textAlign = TextAlign.Right
+    )
 }
