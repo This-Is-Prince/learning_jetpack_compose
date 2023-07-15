@@ -4,6 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
@@ -11,6 +15,7 @@ import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
@@ -38,7 +43,44 @@ private fun Setup() {
 @Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
 private fun PreviewFunction() {
-    TextFieldPreviewFunction()
+    Box(
+        contentAlignment = Alignment.Center
+    ){
+        Text(text = "A", fontSize = 24.sp)
+        Text(text = "B", fontSize = 24.sp)
+    }
+}
+
+@Composable
+private fun BoxPreviewFunction() {
+    Box(
+        contentAlignment = Alignment.Center
+    ){
+        Text(text = "A", fontSize = 24.sp)
+        Text(text = "B", fontSize = 24.sp)
+    }
+}
+
+@Composable
+private fun RowPreviewFunction() {
+    Row(
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ){
+        Text(text = "A", fontSize = 24.sp)
+        Text(text = "B", fontSize = 24.sp)
+    }
+}
+
+@Composable
+private fun ColumnPreviewFunction() {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        Text(text = "A", fontSize = 24.sp)
+        Text(text = "B", fontSize = 24.sp)
+    }
 }
 
 @Composable
