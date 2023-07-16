@@ -48,7 +48,7 @@ private fun Setup() {
 @Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
 private fun PreviewFunction() {
-    Recomposable()
+    NotificationScreen()
 }
 
 @Composable
