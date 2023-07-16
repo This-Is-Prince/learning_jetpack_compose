@@ -1,6 +1,7 @@
 package com.example.learning_jetpack_compose
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -47,7 +48,21 @@ private fun Setup() {
 @Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
 private fun PreviewFunction() {
-    ScrollableLazyColumnPreviewItem()
+    Recomposable()
+}
+
+@Composable
+fun Recomposable() {
+    val state = remember {
+        mutableStateOf(0.0)
+    }
+    Log.d("TAGGED", "Logged during Initial Composition")
+    Button(onClick = {
+        state.value = Math.random()
+    }) {
+        Log.d("TAGGED", "Logged during both Composition & Recomposition")
+        Text(text = state.value.toString())
+    }
 }
 
 @Composable
@@ -56,7 +71,8 @@ private fun CircularImagePreviewFunction() {
         painter = painterResource(id = R.drawable.cat_quote),
         contentDescription = "Quote with cat",
         contentScale = ContentScale.Crop,
-        modifier = Modifier.size(80.dp)
+        modifier = Modifier
+            .size(80.dp)
             .clip(CircleShape)
             .border(2.dp, Color.LightGray, CircleShape),
     )
