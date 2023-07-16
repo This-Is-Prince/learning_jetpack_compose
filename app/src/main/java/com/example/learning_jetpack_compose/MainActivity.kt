@@ -58,6 +58,18 @@ private fun PreviewFunction() {
 }
 
 @Composable
+private fun CirclularImagePreviewFunction() {
+    Image(
+        painter = painterResource(id = R.drawable.cat_quote),
+        contentDescription = "Quote with cat",
+        contentScale = ContentScale.Crop,
+        modifier = Modifier.size(80.dp)
+            .clip(CircleShape)
+            .border(2.dp, Color.LightGray, CircleShape),
+    )
+}
+
+@Composable
 private fun ModifierPreviewFunction() {
     Text(
         text = "Hello",
