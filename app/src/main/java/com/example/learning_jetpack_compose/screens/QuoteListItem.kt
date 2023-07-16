@@ -20,11 +20,11 @@ import androidx.compose.ui.unit.dp
 import com.example.learning_jetpack_compose.models.Quote
 
 @Composable
-fun QuoteListItem(quote: Quote, onClick: () -> Unit) {
+fun QuoteListItem(quote: Quote, onClick: (quote: Quote) -> Unit) {
     Card(
         elevation = 4.dp,
         modifier = Modifier
-            .clickable { onClick() }
+            .clickable { onClick(quote) }
             .padding(8.dp)
     ) {
         Row(
