@@ -47,18 +47,11 @@ private fun Setup() {
 @Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
 private fun PreviewFunction() {
-    Image(
-        painter = painterResource(id = R.drawable.cat_quote),
-        contentDescription = "Quote with cat",
-        contentScale = ContentScale.Crop,
-        modifier = Modifier.size(80.dp)
-            .clip(CircleShape)
-            .border(2.dp, Color.LightGray, CircleShape),
-    )
+    ScrollableLazyColumnPreviewItem()
 }
 
 @Composable
-private fun CirclularImagePreviewFunction() {
+private fun CircularImagePreviewFunction() {
     Image(
         painter = painterResource(id = R.drawable.cat_quote),
         contentDescription = "Quote with cat",

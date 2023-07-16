@@ -2,6 +2,10 @@ package com.example.learning_jetpack_compose
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -16,7 +20,36 @@ import androidx.compose.ui.unit.dp
 @Preview(heightDp = 500)
 @Composable
 fun PreviewItem() {
-    Column() {
+    LazyColumn(content = {
+        items(getCategoryList()) { item ->
+            BlogCategory(img = item.img, title = item.title, subtitle = item.subtitle)
+        }
+    })
+}
+
+@Composable
+fun ScrollableLazyColumnPreviewItem() {
+    LazyColumn(content = {
+        items(getCategoryList()) { item ->
+            BlogCategory(img = item.img, title = item.title, subtitle = item.subtitle)
+        }
+    })
+}
+
+@Composable
+fun ScrollableColumnPreviewItem() {
+    Column(
+        modifier = Modifier.verticalScroll(rememberScrollState())
+    ) {
+        getCategoryList().map { item ->
+            BlogCategory(img = item.img, title = item.title, subtitle = item.subtitle)
+        }
+    }
+}
+
+@Composable
+fun ColumnListPreviewItem() {
+    Column{
         getCategoryList().map { item ->
             BlogCategory(img = item.img, title = item.title, subtitle = item.subtitle)
         }
@@ -67,6 +100,46 @@ data class Category(val img: Int, val title: String, val subtitle: String)
 
 fun getCategoryList(): MutableList<Category> {
     val list = mutableListOf<Category>()
+    list.add(Category(R.drawable.cat_quote, "Programming", "Learn Different Languages"))
+    list.add(Category(R.drawable.cat_quote, "Technology", "News about new Tech"))
+    list.add(Category(R.drawable.cat_quote, "Full Stack Development", "From Backend to Frontend"))
+    list.add(Category(R.drawable.cat_quote, "DevOps", "Deployment, CI, CD etc."))
+    list.add(Category(R.drawable.cat_quote, "AI & ML", "Basic Artificial Intelligence"))
+    list.add(Category(R.drawable.cat_quote, "Programming", "Learn Different Languages"))
+    list.add(Category(R.drawable.cat_quote, "Technology", "News about new Tech"))
+    list.add(Category(R.drawable.cat_quote, "Full Stack Development", "From Backend to Frontend"))
+    list.add(Category(R.drawable.cat_quote, "DevOps", "Deployment, CI, CD etc."))
+    list.add(Category(R.drawable.cat_quote, "AI & ML", "Basic Artificial Intelligence"))
+    list.add(Category(R.drawable.cat_quote, "Programming", "Learn Different Languages"))
+    list.add(Category(R.drawable.cat_quote, "Technology", "News about new Tech"))
+    list.add(Category(R.drawable.cat_quote, "Full Stack Development", "From Backend to Frontend"))
+    list.add(Category(R.drawable.cat_quote, "DevOps", "Deployment, CI, CD etc."))
+    list.add(Category(R.drawable.cat_quote, "AI & ML", "Basic Artificial Intelligence"))
+    list.add(Category(R.drawable.cat_quote, "Programming", "Learn Different Languages"))
+    list.add(Category(R.drawable.cat_quote, "Technology", "News about new Tech"))
+    list.add(Category(R.drawable.cat_quote, "Full Stack Development", "From Backend to Frontend"))
+    list.add(Category(R.drawable.cat_quote, "DevOps", "Deployment, CI, CD etc."))
+    list.add(Category(R.drawable.cat_quote, "AI & ML", "Basic Artificial Intelligence"))
+    list.add(Category(R.drawable.cat_quote, "Programming", "Learn Different Languages"))
+    list.add(Category(R.drawable.cat_quote, "Technology", "News about new Tech"))
+    list.add(Category(R.drawable.cat_quote, "Full Stack Development", "From Backend to Frontend"))
+    list.add(Category(R.drawable.cat_quote, "DevOps", "Deployment, CI, CD etc."))
+    list.add(Category(R.drawable.cat_quote, "AI & ML", "Basic Artificial Intelligence"))
+    list.add(Category(R.drawable.cat_quote, "Programming", "Learn Different Languages"))
+    list.add(Category(R.drawable.cat_quote, "Technology", "News about new Tech"))
+    list.add(Category(R.drawable.cat_quote, "Full Stack Development", "From Backend to Frontend"))
+    list.add(Category(R.drawable.cat_quote, "DevOps", "Deployment, CI, CD etc."))
+    list.add(Category(R.drawable.cat_quote, "AI & ML", "Basic Artificial Intelligence"))
+    list.add(Category(R.drawable.cat_quote, "Programming", "Learn Different Languages"))
+    list.add(Category(R.drawable.cat_quote, "Technology", "News about new Tech"))
+    list.add(Category(R.drawable.cat_quote, "Full Stack Development", "From Backend to Frontend"))
+    list.add(Category(R.drawable.cat_quote, "DevOps", "Deployment, CI, CD etc."))
+    list.add(Category(R.drawable.cat_quote, "AI & ML", "Basic Artificial Intelligence"))
+    list.add(Category(R.drawable.cat_quote, "Programming", "Learn Different Languages"))
+    list.add(Category(R.drawable.cat_quote, "Technology", "News about new Tech"))
+    list.add(Category(R.drawable.cat_quote, "Full Stack Development", "From Backend to Frontend"))
+    list.add(Category(R.drawable.cat_quote, "DevOps", "Deployment, CI, CD etc."))
+    list.add(Category(R.drawable.cat_quote, "AI & ML", "Basic Artificial Intelligence"))
     list.add(Category(R.drawable.cat_quote, "Programming", "Learn Different Languages"))
     list.add(Category(R.drawable.cat_quote, "Technology", "News about new Tech"))
     list.add(Category(R.drawable.cat_quote, "Full Stack Development", "From Backend to Frontend"))
